@@ -10,7 +10,7 @@ services:
       - MYSQL_USER=tlc
       - MYSQL_PASSWORD=tlc
   etherpad:
-    image: etherpad/etherpad:stable
+    image: etherpad/etherpad
     ports:
       - "9001:9001"
     volumes:
@@ -19,4 +19,28 @@ services:
     image: bytemark/smtp
     restart: always
     ports:
-      - "2525:25"
+      - "2525:25" 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
+
+  quarkus:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.native
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - "8080:8080"
+
+

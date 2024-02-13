@@ -3,7 +3,7 @@
 #
 # Before building the container image run:
 #
-# mvn package -Pnative -Dquarkus.native.container-build=true
+# mvn package -Pnative -D quarkus.native.container-build=true
 #
 # Then, build the image with:
 #
@@ -19,6 +19,7 @@ WORKDIR /work/
 RUN chown 1001 /work \
     && chmod "g+rwX" /work \
     && chown 1001:root /work
+
 COPY --chown=1001:root target/*-runner /work/application
 
 EXPOSE 8080
