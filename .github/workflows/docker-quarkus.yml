@@ -30,7 +30,8 @@ jobs:
 
     - name: Build and push Quarkus Docker image
       run: |
-        ./api/mvnw clean package
+        cd api
+        ./mvnw clean package
         docker build -t legel/doodlestudent-quarkus:latest api/src/main/docker/Dockerfile
         docker push legel/doodlestudent-quarkus:latest
 
