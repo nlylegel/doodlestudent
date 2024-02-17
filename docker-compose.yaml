@@ -29,9 +29,7 @@ services:
     ports:
       - "2525:25"
   quarkus:
-    build:
-      context: ./api
-      dockerfile: src/main/docker/Dockerfile
+    build: "./api"
     depends_on:
       - db
       - etherpad
