@@ -25,7 +25,7 @@ jobs:
     - name: Build and push Quarkus Docker image
       run: |
         ls
-        docker build -t legel/doodlestudent-quarkus:latest ./api/src/main/docker/Dockerfile.jvm
+        docker build -t legel/doodlestudent-quarkus:latest ./api/src/main/docker
         docker push legel/doodlestudent-quarkus:latest
 
     - name: Build and push Proxy Docker image
