@@ -34,17 +34,20 @@ jobs:
         ./mvnw clean package
         ls -l target/quarkus-app
 
-    - name: Build and push Quarkus Docker image
+    - name: Build Quarkus Docker image
       run: |
         docker build -t legel/doodlestudent-quarkus:latest api
-        docker push legel/doodlestudent-quarkus:latest
 
-    - name: Build and push Proxy Docker image
+    - name: Build Proxy Docker image
       run: |
         docker build -t legel/doodlestudent-proxy:latest .
-        docker push legel/doodlestudent-proxy:latest
 
-    - name: Build and push Angular Docker image
+    - name: Build Angular Docker image
       run: |
         docker build -t legel/doodlestudent-angular:latest ./front
+
+    - name: Push images
+      run: |
         docker push legel/doodlestudent-angular:latest
+        docker push legel/doodlestudent-proxy:latest
+        docker push legel/doodlestudent-quarkus:latest
