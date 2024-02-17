@@ -22,7 +22,18 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
 
-    - name: Build and push Docker image
+    - name: Build and push Quarkus Docker image
       run: |
-        docker build -t legel/doodlestudent-quarkus:latest .
+        ls
+        docker build -t legel/doodlestudent-quarkus:latest ./api/src/main/docker/Dockerfile.jvm
         docker push legel/doodlestudent-quarkus:latest
+
+    - name: Build and push Proxy Docker image
+      run: |
+        docker build -t legel/doodlestudent-proxy:latest .
+        docker push legel/doodlestudent-proxy:latest
+
+    - name: Build and push Angular Docker image
+      run: |
+        docker build -t legel/doodlestudent-angular:latest ./front
+        docker push legel/doodlestudent-angular:latest
