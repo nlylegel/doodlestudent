@@ -7,6 +7,8 @@ services:
     depends_on: 
       - "quarkus"
       - "angular"
+    restart: always
+
   db:
     image: mysql
     ports:
@@ -55,4 +57,6 @@ services:
     build: "./front"
     ports: 
       - "4200:80"
+    restart: always
+
   
