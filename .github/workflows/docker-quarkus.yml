@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up JDK 17
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v3
       with:
         distribution: 'adopt'
         java-version: '17'
@@ -28,12 +28,15 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
 
-    - name: Build and push Quarkus Docker image
+    - name: Check content of target/quarkus-app
       run: |
         cd api
         ./mvnw clean package
-        ls
-        docker build -t legel/doodlestudent-quarkus:latest src/main/docker
+        ls -l target/quarkus-app
+
+    - name: Build and push Quarkus Docker image
+      run: |
+        docker build --progress=plain -t legel/doodlestudent-quarkus:latest api/src/main/docker
         docker push legel/doodlestudent-quarkus:latest
 
     - name: Build and push Proxy Docker image
