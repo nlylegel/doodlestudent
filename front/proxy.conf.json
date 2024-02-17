@@ -1,4 +1,10 @@
 {
+  "/api/polls/*": {
+    "target": "http://etherpad:9001",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
   "/api/*": {
     "target": "http://localhost:8080",
     "secure": false,

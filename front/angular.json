@@ -129,6 +129,6 @@
     }},
   "defaultProject": "tlcfront",
   "cli": {
-    "analytics": false
+    "analytics": "1eb1acd6-fd44-48b2-837e-42c9147c8ada"
   }
 }
