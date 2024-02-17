@@ -31,7 +31,7 @@ services:
   quarkus:
     build:
       context: ./api
-      dockerfile: src/main/docker/Dockerfile.jvm
+      dockerfile: src/main/docker/Dockerfile
     depends_on:
       - db
       - etherpad
