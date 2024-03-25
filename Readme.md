@@ -1,15 +1,17 @@
-# Remote meetings planning
+Dockerisation
 
-This project is used in a course on the *ops* part at the [University of Rennes](https://www.univ-rennes1.fr/), France. It is a kind of doodle clone developed in so-called "native cloud" technologies in order to allow students to work on a continuous deployment chain in a containerized environment. Among the feature, the application automatically initializes a pad for the meeting and a chat room for the meeting participants.
+La première phase du projet consistait à créer les Dockerfiles pour chaque composant de l'application ainsi qu'un Docker Compose pour orchestrer le lancement. La dockerisation du back-end s'est avérée complexe en raison de la nécessité d'organiser les appels API via les containers, ce qui impliquait de ne pas utiliser localhost.
 
-- The [back](https://github.com/barais/doodlestudent/tree/main/api) is developed using the [quarkus.io](https://quarkus.io/) framework. 
-- The [front](https://github.com/barais/doodlestudent/tree/main/front) is developed in [angular](https://angular.io/) using the [primeng](https://www.primefaces.org/primeng/)  angular UI component library and the [fullcalendar](https://fullcalendar.io/) graphical component.
+Déploiements automatiques
 
-A demo of the application is available [here](https://doodle.diverse-team.fr/).
+Nous avons ensuite entrepris l'aventure 1, qui consistait à mettre en place des déploiements automatiques de mises à jour d'images Docker. Nous avons utilisé GitHub Actions pour automatiser le processus de construction et de déploiement des images Docker, et Watchtower pour surveiller les mises à jour des images et déclencher les déploiements.
 
-Three videos (in french) are available. They present:
-- the [main application feature](https://drive.google.com/file/d/1GQbdgq2CHcddTlcoHqM5Zc8Dw5o_eeLg/preview), 
-- its [architecture](https://drive.google.com/file/d/1l5UAsU5_q-oshwEW6edZ4UvQjN3-tzwi/preview) 
-- and a [short code review](https://drive.google.com/file/d/1jxYNfJdtd4r_pDbOthra360ei8Z17tX_/preview) .
+Résultats
 
-For french native speaker that wants to follow the course. The course web page is available [here](https://hackmd.diverse-team.fr/s/SJqu5DjSD).
+L'expérience a été très instructive et enrichissante. Malgré la complexité initiale de la dockerisation du back-end, nous avons réussi à mettre en place une architecture robuste et fonctionnelle. L'utilisation de GitHub Actions s'est révélée beaucoup plus simple que prévue, ce qui a facilité la mise en place des déploiements automatiques.
+
+VOIR Aventure_1_watchtower.png POUR LE DIAGRAMME
+
+Conclusion
+
+Ce projet nous a permis d'acquérir des compétences précieuses en dockerisation d'applications, gestion de déploiements automatiques et utilisation d'outils comme GitHub Actions et Watchtower. Nous avons également appris à surmonter des défis techniques et à travailler en équipe pour atteindre nos objectifs. En conclusion, cette expérience a été extrêmement bénéfique et nous laisse avec une meilleure compréhension des technologies impliquées et de leurs applications pratiques.
